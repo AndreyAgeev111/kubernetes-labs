@@ -1,14 +1,13 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: vault
-  namespace: vault
+  namespace: my-vault
   labels:
     app.kubernetes.io/name: vault
     app.kubernetes.io/instance: vault
 spec:
-  serviceName: vault-internal
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: vault
@@ -27,12 +26,6 @@ spec:
         runAsGroup: 1000
         runAsUser: 100
         fsGroup: 1000
-      volumes:
-        - name: config
-          configMap:
-            name: vault-config
-        - name: home
-          emptyDir: {}
       containers:
         - name: vault
           image: hashicorp/vault:1.13.3
@@ -70,8 +63,6 @@ spec:
             - name: HOME
               value: "/home/vault"
           volumeMounts:
-            - name: data
-              mountPath: /vault/data
             - name: config
               mountPath: /vault/config
             - name: home
@@ -85,18 +76,15 @@ spec:
               name: http-rep
           readinessProbe:
             exec:
-              command: ["/bin/sh", "-ec", "vault status -tls-skip-verify"]
+              command: [ "/bin/sh", "-ec", "vault status -tls-skip-verify" ]
             failureThreshold: 2
             initialDelaySeconds: 5
             periodSeconds: 5
             successThreshold: 1
             timeoutSeconds: 3
-  volumeClaimTemplates:
-    - metadata:
-        name: data
-      spec:
-        accessModes:
-          - ReadWriteOnce
-        resources:
-          requests:
-            storage: 1Gi
+      volumes:
+        - name: config
+          configMap:
+            name: vault-config
+        - name: home
+          emptyDir: { }
