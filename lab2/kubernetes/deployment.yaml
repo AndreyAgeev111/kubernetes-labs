@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itmo-frontend
+  namespace: itmo-frontend
+  labels:
+    app: itmo-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: itmo-frontend
+  template:
+    metadata:
+      labels:
+        app: itmo-frontend
+    spec:
+      serviceAccountName: itmo-frontend
+      containers:
+        - name: itdt-contained-frontend
+          image: ifilyaninitmo/itdt-contained-frontend:master
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: REACT_APP_USERNAME
+              value: "STUDENT"
+            - name: REACT_APP_COMPANY_NAME
+              value: "ITMO"
+          ports:
+            - containerPort: 3000
+              name: http

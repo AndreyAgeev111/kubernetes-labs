@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: itmo-frontend
+  namespace: itmo-frontend
+  labels:
+    app.kubernetes.io/name: itmo-frontend
+    app.kubernetes.io/instance: itmo-frontend
+spec:
+  type: ClusterIP
+  publishNotReadyAddresses: true
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 3000
+      protocol: TCP
+  selector:
+    app: itmo-frontend
