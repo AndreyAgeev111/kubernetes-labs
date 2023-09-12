@@ -46,8 +46,12 @@ kubectl logs <pod-name> # Покажет все логи внутри указа
 
 Через логи был получен токен для авторизации в поднятом Vault:
 
-![Токен авторизации](res/token.png)
+<div style="text-align: center;">
+    <img src="res/token.png" alt="token">
+</div>
 
 Схема организации namespace:
 
-![Токен авторизации](res/lab1.png)
+<div style="text-align: center;">
+    <img src="res/lab1.png" alt="scheme">
+</div>
