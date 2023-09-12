@@ -1,3 +1,12 @@
+University: [ITMO University](https://itmo.ru/ru/)\
+Faculty: [FICT](https://fict.itmo.ru)\
+Course: [Introduction to distributed technologies](https://github.com/itmo-ict-faculty/introduction-to-distributed-technologies)\
+Year: 2023/2024\
+Group: K4110c\
+Author: Ageev Andrey Evgenevich\
+Lab: Lab 1\
+Date of create: 10.09.2023\
+Date of finished: 22.09.2023
 ## Лабораторная работа №1 "Установка Docker и Minikube, мой первый манифест."
 
 Для разворачивания сервиса Vault был создан namespace ```my-vault```:
