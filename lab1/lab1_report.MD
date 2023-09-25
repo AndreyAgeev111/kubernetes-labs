@@ -15,22 +15,16 @@ Date of finished: 22.09.2023
 kubectl apply -f my-namespace.yaml
 ```
 
-Был создан service-account и сluster-role-bindings, так как Vault требует дополнительные разрешения:
-
-```bash 
-kubectl apply -f rbac.yaml
-```
-
-Vault так же требует файл конфигурации с соответствующими параметрами для старта сервера:
-
-```bash 
-kubectl apply -f configmap.yaml
-```
-
 Далее был создан service для Vault с единственным портом ```8200```:
 
 ```bash 
 kubectl apply -f services.yaml
+```
+
+Далее был создан service-account для service:
+
+```bash 
+kubectl apply -f sa.yaml
 ```
 
 После чего был создан файл для разворачивания пода, на котором будет находиться контейнер с Vault:
