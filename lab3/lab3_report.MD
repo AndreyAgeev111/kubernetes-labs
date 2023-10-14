@@ -75,4 +75,4 @@ kubectl logs <pod-name> # Покажет все логи внутри указа
 
 Схема организации namespace:
 
-![Диаграмма](res/lab2_d.png)
+![Диаграмма](res/lab3_d.png)
