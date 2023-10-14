@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: second-itmo
+  namespace: second-itmo
+  labels:
+    app: second-itmo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: second-itmo
+  template:
+    metadata:
+      labels:
+        app: second-itmo
+    spec:
+      serviceAccountName: second-itmo
+      containers:
+        - name: itdt-contained-frontend
+          image: ifilyaninitmo/itdt-contained-frontend:master
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: REACT_APP_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: second-itmo
+                  key: REACT_APP_USERNAME
+            - name: REACT_APP_COMPANY_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: second-itmo
+                  key: REACT_APP_COMPANY_NAME
+          ports:
+            - containerPort: 3000
+              name: http

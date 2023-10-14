@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: second-itmo
+  namespace: second-itmo
+spec:
+  tls:
+    - hosts:
+        - my-second-itmo.com
+      secretName: second-itmo-frontend-secret
+  rules:
+    - host: my-second-itmo.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: second-itmo
+                port:
+                  number: 3000

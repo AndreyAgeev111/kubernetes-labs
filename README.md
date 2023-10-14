@@ -3,3 +3,5 @@
 ## Лабораторная работа 1 - [link](lab1/lab1_report.MD)
 
 ## Лабораторная работа 2 - [link](lab2/lab2_report.MD)
+
+## Лабораторная работа 3 - [link](lab3/lab3_report.MD)
