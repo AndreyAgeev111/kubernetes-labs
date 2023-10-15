@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: last-itmo
+  namespace: last-itmo
+  labels:
+    app: last-itmo
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 3000
+      protocol: TCP
+  selector:
+    app: last-itmo

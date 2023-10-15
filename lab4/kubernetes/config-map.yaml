@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: last-itmo
+  namespace: last-itmo
+data:
+  REACT_APP_USERNAME: "STUDENT"
+  REACT_APP_COMPANY_NAME: "ITMO"

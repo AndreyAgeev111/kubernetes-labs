@@ -1,0 +1,7 @@
+apiVersion: projectcalico.org/v3
+kind: CalicoAPIConfig
+metadata:
+  name: calico-cfg
+spec:
+  datastoreType: "kubernetes"
+  kubeconfig: "C:/Users/Andrey/.kube/config"

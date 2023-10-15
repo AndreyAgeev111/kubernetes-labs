@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: last-itmo
+  namespace: last-itmo
+  labels:
+    app: last-itmo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: last-itmo
+  template:
+    metadata:
+      labels:
+        app: last-itmo
+    spec:
+      serviceAccountName: last-itmo
+      containers:
+        - name: itdt-contained-frontend
+          image: ifilyaninitmo/itdt-contained-frontend:master
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: REACT_APP_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: last-itmo
+                  key: REACT_APP_USERNAME
+            - name: REACT_APP_COMPANY_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: last-itmo
+                  key: REACT_APP_COMPANY_NAME
+          ports:
+            - containerPort: 3000
+              name: http
