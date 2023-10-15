@@ -69,7 +69,7 @@ kubectl logs <pod-name> # Покажет все логи внутри указа
 
 ![Стартовая страница](res/cert-screen.png)
 
-При написании ```deployment.yaml``` переменные окружения были указаны в config-map как:
+При написании ```config-map.yaml``` переменные окружения были указаны как:
 * ```REACT_APP_USERNAME: STUDENT```
 * ```REACT_APP_COMPANY_NAME: ITMO```
 
