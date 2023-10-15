@@ -1,12 +1,12 @@
 apiVersion: projectcalico.org/v3
 kind: IPPool
 metadata:
-  name: third
+  name: first
 spec:
   cidr: 192.168.2.0/24
   ipipMode: Always
   natOutgoing: true
-  nodeSelector: itmo == "third"
+  nodeSelector: itmo == "first"
 ---
 apiVersion: projectcalico.org/v3
 kind: IPPool
