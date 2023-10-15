@@ -43,7 +43,7 @@ calicoctl delete ippools default-ipv4-ippool --config=calico.cfg.yaml --allow-ve
 calicoctl apply -f calico.yaml --config=calico.cfg.yaml --allow-version-mismatch
 ```
 
-Для разворачивания сервиса itdt-contained-frontend был создан namespace ```second-itmo```:
+Для разворачивания сервиса itdt-contained-frontend был создан namespace ```last-itmo```:
 
 ```bash 
 kubectl apply -f my-namespace.yaml
